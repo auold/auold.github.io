@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Blog of Auold</title>
-        <link>https://Auold.github.io/</link>
-        <description>Recent content on Blog of Auold</description>
+        <title>Hugo on Blog of Auold</title>
+        <link>https://Auold.github.io/tags/hugo/</link>
+        <description>Recent content in Hugo on Blog of Auold</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 14 Feb 2023 23:33:00 +0800</lastBuildDate><atom:link href="https://Auold.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 14 Feb 2023 23:33:00 +0800</lastBuildDate><atom:link href="https://Auold.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>这是第一篇</title>
         <link>https://Auold.github.io/posts/first/</link>
         <pubDate>Tue, 14 Feb 2023 23:33:00 +0800</pubDate>
