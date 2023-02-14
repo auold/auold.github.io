@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Blog of Auold</title>
-        <link>https://auold.github.io/post/</link>
+        <link>https://Auold.github.io/post/</link>
         <description>Recent content in Posts on Blog of Auold</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 13 Feb 2023 23:04:52 +0800</lastBuildDate><atom:link href="https://auold.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 13 Feb 2023 23:04:52 +0800</lastBuildDate><atom:link href="https://Auold.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Test2</title>
-        <link>https://auold.github.io/post/test2/</link>
+        <link>https://Auold.github.io/post/test2/</link>
         <pubDate>Mon, 13 Feb 2023 23:04:52 +0800</pubDate>
         
-        <guid>https://auold.github.io/post/test2/</guid>
+        <guid>https://Auold.github.io/post/test2/</guid>
         <description>&lt;p&gt;222&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>Test</title>
-        <link>https://auold.github.io/post/test/</link>
+        <link>https://Auold.github.io/post/test/</link>
         <pubDate>Mon, 13 Feb 2023 23:02:18 +0800</pubDate>
         
-        <guid>https://auold.github.io/post/test/</guid>
+        <guid>https://Auold.github.io/post/test/</guid>
         <description>&lt;p&gt;Hello Hugo!
 测试内容&lt;/p&gt;
 </description>
