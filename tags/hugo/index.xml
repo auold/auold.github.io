@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Tue, 14 Feb 2023 23:33:00 +0800</lastBuildDate><atom:link href="https://auold.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>这是第一篇</title>
-        <link>https://auold.github.io/posts/first/</link>
+        <link>https://auold.github.io/post/first/</link>
         <pubDate>Tue, 14 Feb 2023 23:33:00 +0800</pubDate>
         
-        <guid>https://auold.github.io/posts/first/</guid>
+        <guid>https://auold.github.io/post/first/</guid>
         <description>&lt;h1 id=&#34;站点的诞生&#34;&gt;站点的诞生&lt;/h1&gt;
 &lt;h2 id=&#34;为什么是博客&#34;&gt;为什么是&lt;strong&gt;博客&lt;/strong&gt;？&lt;/h2&gt;
 &lt;p&gt;博客虽然形式老旧且更新麻烦，但同时也带来了更高的自由度。无论是形式上还是内容上，博客都更加自由。&lt;/p&gt;
