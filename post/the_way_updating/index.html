@@ -2,23 +2,47 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。
-首先打开git bash，跳转至blog文件夹，注意这里是/而不是\
-cd F:/GitHub/Hugo/Sites/blog cd F:/GitHub/Hugo/Sites/blog '>
+首先打开git bash，跳转至blog文件夹，注意这里是/而不是\。
+$ cd F:/GitHub/Hugo/Sites/blog 通过hugo new命令新建名为*.md的markdown*文件。
+$ hugo new post/.md 打开相应文件开始劈里啪啦一顿写。
+写完了之后回到git bash，生成静态网页，静态网页的位置在blog\public。
+$ hugo --baseUrl=&amp;#34;https://auold.github.io/&amp;#34; 之后进入public文件夹进行推送。
+$ cd public 这个文件夹本身已经初始化过了，经过试验可以不需要重新git init。先将所有文件添加到索引。
+$ git add -A 提交代码，&amp;ldquo;&amp;ldquo;中的内容表示注释说明，必须要有，用于注释这次提交是做了什么修改。
+$ git commit -m &amp;#34;&amp;#34; 将代码推送至远程仓库。
+$ git push 最后静静地等待github的workflow运行起来，再把先前的workflow删除就好。（我其实并不清楚不删除会怎样，目前看起来似乎没有问题，不过总感觉删了总比不删来得清楚）
+希望能维持住更新。'>
 <title>更新时需要用到的命令</title>
 
 <link rel='canonical' href='https://auold.github.io/post/the_way_updating/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='更新时需要用到的命令'>
 <meta property='og:description' content='新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。
-首先打开git bash，跳转至blog文件夹，注意这里是/而不是\
-cd F:/GitHub/Hugo/Sites/blog cd F:/GitHub/Hugo/Sites/blog '>
+首先打开git bash，跳转至blog文件夹，注意这里是/而不是\。
+$ cd F:/GitHub/Hugo/Sites/blog 通过hugo new命令新建名为*.md的markdown*文件。
+$ hugo new post/.md 打开相应文件开始劈里啪啦一顿写。
+写完了之后回到git bash，生成静态网页，静态网页的位置在blog\public。
+$ hugo --baseUrl=&amp;#34;https://auold.github.io/&amp;#34; 之后进入public文件夹进行推送。
+$ cd public 这个文件夹本身已经初始化过了，经过试验可以不需要重新git init。先将所有文件添加到索引。
+$ git add -A 提交代码，&amp;ldquo;&amp;ldquo;中的内容表示注释说明，必须要有，用于注释这次提交是做了什么修改。
+$ git commit -m &amp;#34;&amp;#34; 将代码推送至远程仓库。
+$ git push 最后静静地等待github的workflow运行起来，再把先前的workflow删除就好。（我其实并不清楚不删除会怎样，目前看起来似乎没有问题，不过总感觉删了总比不删来得清楚）
+希望能维持住更新。'>
 <meta property='og:url' content='https://auold.github.io/post/the_way_updating/'>
 <meta property='og:site_name' content='Blog of Auold'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='技术' /><meta property='article:tag' content='git' /><meta property='article:published_time' content='2023-02-16T00:03:15&#43;08:00'/><meta property='article:modified_time' content='2023-02-16T00:03:15&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='技术' /><meta property='article:tag' content='git' /><meta property='article:tag' content='Hugo' /><meta property='article:published_time' content='2023-02-16T00:03:15&#43;08:00'/><meta property='article:modified_time' content='2023-02-16T00:03:15&#43;08:00'/>
 <meta name="twitter:title" content="更新时需要用到的命令">
 <meta name="twitter:description" content="新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。
-首先打开git bash，跳转至blog文件夹，注意这里是/而不是\
-cd F:/GitHub/Hugo/Sites/blog cd F:/GitHub/Hugo/Sites/blog ">
+首先打开git bash，跳转至blog文件夹，注意这里是/而不是\。
+$ cd F:/GitHub/Hugo/Sites/blog 通过hugo new命令新建名为*.md的markdown*文件。
+$ hugo new post/.md 打开相应文件开始劈里啪啦一顿写。
+写完了之后回到git bash，生成静态网页，静态网页的位置在blog\public。
+$ hugo --baseUrl=&amp;#34;https://auold.github.io/&amp;#34; 之后进入public文件夹进行推送。
+$ cd public 这个文件夹本身已经初始化过了，经过试验可以不需要重新git init。先将所有文件添加到索引。
+$ git add -A 提交代码，&amp;ldquo;&amp;ldquo;中的内容表示注释说明，必须要有，用于注释这次提交是做了什么修改。
+$ git commit -m &amp;#34;&amp;#34; 将代码推送至远程仓库。
+$ git push 最后静静地等待github的workflow运行起来，再把先前的workflow删除就好。（我其实并不清楚不删除会怎样，目前看起来似乎没有问题，不过总感觉删了总比不删来得清楚）
+希望能维持住更新。">
     </head>
     <body class="
     article-page
@@ -171,10 +195,24 @@ cd F:/GitHub/Hugo/Sites/blog cd F:/GitHub/Hugo/Sites/blog ">
     
     
     <p>新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。</p>
-<p>首先打开<em>git bash</em>，跳转至<em>blog</em>文件夹，<strong>注意这里是/而不是\</strong></p>
-<pre tabindex="0"><code>cd F:/GitHub/Hugo/Sites/blog
-</code></pre><pre tabindex="0"><code>cd F:/GitHub/Hugo/Sites/blog
-</code></pre>
+<p>首先打开<em>git bash</em>，跳转至<em>blog</em>文件夹，<strong>注意这里是/而不是\</strong>。</p>
+<pre tabindex="0"><code>$ cd F:/GitHub/Hugo/Sites/blog
+</code></pre><p>通过<em>hugo new</em>命令新建名为*.md<em>的</em>markdown*文件。</p>
+<pre tabindex="0"><code>$ hugo new post/.md
+</code></pre><p>打开相应文件开始劈里啪啦一顿写。</p>
+<p>写完了之后回到<em>git bash</em>，生成静态网页，静态网页的位置在<em>blog\public</em>。</p>
+<pre tabindex="0"><code>$ hugo --baseUrl=&#34;https://auold.github.io/&#34;
+</code></pre><p>之后进入<em>public</em>文件夹进行推送。</p>
+<pre tabindex="0"><code>$ cd public
+</code></pre><p>这个文件夹本身已经初始化过了，经过试验可以不需要重新<em>git init</em>。先将所有文件添加到索引。</p>
+<pre tabindex="0"><code>$ git add -A
+</code></pre><p>提交代码，&ldquo;&ldquo;中的内容表示注释说明，必须要有，用于注释这次提交是做了什么修改。</p>
+<pre tabindex="0"><code>$ git commit -m &#34;&#34;
+</code></pre><p>将代码推送至远程仓库。</p>
+<pre tabindex="0"><code>$ git push
+</code></pre><p>最后静静地等待<em>github</em>的<em>workflow</em>运行起来，再把先前的<em>workflow</em>删除就好。<em>（我其实并不清楚不删除会怎样，目前看起来似乎没有问题，不过总感觉删了总比不删来得清楚）</em></p>
+<p>希望能维持住更新。</p>
+
 </section>
 
 
@@ -185,6 +223,8 @@ cd F:/GitHub/Hugo/Sites/blog cd F:/GitHub/Hugo/Sites/blog ">
             <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
         
             <a href="/tags/git/">git</a>
+        
+            <a href="/tags/hugo/">Hugo</a>
         
     </section>
 
@@ -198,6 +238,28 @@ cd F:/GitHub/Hugo/Sites/blog cd F:/GitHub/Hugo/Sites/blog ">
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/first/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">这是第一篇</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     
