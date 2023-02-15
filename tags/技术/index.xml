@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>技术 on Blog of Auold</title>
+        <link>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
+        <description>Recent content in 技术 on Blog of Auold</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 16 Feb 2023 00:03:15 +0800</lastBuildDate><atom:link href="https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>更新时需要用到的命令</title>
+        <link>https://auold.github.io/post/the_way_updating/</link>
+        <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
+        
+        <guid>https://auold.github.io/post/the_way_updating/</guid>
+        <description>&lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
+&lt;p&gt;首先打开&lt;em&gt;git bash&lt;/em&gt;，跳转至&lt;em&gt;blog&lt;/em&gt;文件夹，&lt;strong&gt;注意这里是/而不是\&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd F:/GitHub/Hugo/Sites/blog
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd F:/GitHub/Hugo/Sites/blog
+&lt;/code&gt;&lt;/pre&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
