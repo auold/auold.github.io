@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://Auold.github.io/</loc>
+    <loc>https://auold.github.io/</loc>
     <lastmod>2023-02-14T23:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://Auold.github.io/tags/hugo/</loc>
+    <loc>https://auold.github.io/tags/hugo/</loc>
     <lastmod>2023-02-14T23:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://Auold.github.io/post/</loc>
+    <loc>https://auold.github.io/posts/</loc>
     <lastmod>2023-02-14T23:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://Auold.github.io/tags/</loc>
+    <loc>https://auold.github.io/tags/</loc>
     <lastmod>2023-02-14T23:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://Auold.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
+    <loc>https://auold.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2023-02-14T23:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://Auold.github.io/post/first/</loc>
+    <loc>https://auold.github.io/posts/first/</loc>
     <lastmod>2023-02-14T23:33:00+08:00</lastmod>
   </url><url>
-    <loc>https://Auold.github.io/categories/</loc>
+    <loc>https://auold.github.io/categories/</loc>
   </url><url>
-    <loc>https://Auold.github.io/series/</loc>
+    <loc>https://auold.github.io/series/</loc>
   </url>
 </urlset>

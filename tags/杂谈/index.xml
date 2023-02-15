@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>杂谈 on Blog of Auold</title>
-        <link>https://Auold.github.io/tags/%E6%9D%82%E8%B0%88/</link>
+        <link>https://auold.github.io/tags/%E6%9D%82%E8%B0%88/</link>
         <description>Recent content in 杂谈 on Blog of Auold</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 14 Feb 2023 23:33:00 +0800</lastBuildDate><atom:link href="https://Auold.github.io/tags/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 14 Feb 2023 23:33:00 +0800</lastBuildDate><atom:link href="https://auold.github.io/tags/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>这是第一篇</title>
-        <link>https://Auold.github.io/post/first/</link>
+        <link>https://auold.github.io/posts/first/</link>
         <pubDate>Tue, 14 Feb 2023 23:33:00 +0800</pubDate>
         
-        <guid>https://Auold.github.io/post/first/</guid>
+        <guid>https://auold.github.io/posts/first/</guid>
         <description>&lt;h1 id=&#34;站点的诞生&#34;&gt;站点的诞生&lt;/h1&gt;
-&lt;p&gt;##为什么是&lt;strong&gt;博客&lt;/strong&gt;？&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;想把时间留给自己&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;##为什么是&lt;em&gt;Hugo&lt;/em&gt;+&lt;em&gt;Github&lt;/em&gt;？&lt;/p&gt;
-&lt;p&gt;因为&lt;em&gt;&lt;strong&gt;简单&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;##会写点什么？&lt;/p&gt;
-&lt;p&gt;目前打算什么都写，涉及技术的当然会有，但我也不想把这个地方完全变成一个技术的仓库。我发现我已经很久很久没有与自己正儿八经的聊，并且以文字为媒介把当时的所思所想记录下来了。不能说这是日记，不然就下贱了，当成听戏看小说之类的会更合适一些。&lt;/p&gt;
+&lt;h2 id=&#34;为什么是博客&#34;&gt;为什么是&lt;strong&gt;博客&lt;/strong&gt;？&lt;/h2&gt;
+&lt;p&gt;博客虽然形式老旧且更新麻烦，但同时也带来了更高的自由度。无论是形式上还是内容上，博客都更加自由。&lt;/p&gt;
+&lt;h2 id=&#34;为什么是hugogithub&#34;&gt;为什么是&lt;em&gt;Hugo&lt;/em&gt;+&lt;em&gt;Github&lt;/em&gt;？&lt;/h2&gt;
+&lt;p&gt;因为&lt;em&gt;&lt;strong&gt;简单&lt;/strong&gt;&lt;/em&gt;，以目前的内容量，这个形式足够我发挥了。如果我之后真的努力更新这个站点的话，说不定会考虑再给它换个家。&lt;/p&gt;
+&lt;h2 id=&#34;会写点什么&#34;&gt;会写点什么？&lt;/h2&gt;
+&lt;p&gt;我主要是想&lt;strong&gt;给自己留下反刍的时间和空间&lt;/strong&gt;。目前打算什么都写，涉及技术的当然会有，但我也不想把这个地方完全变成一个技术的仓库。我发现我已经很久很久没有与自己正儿八经的聊，并且以文字为媒介把当时的所思所想记录下来了。不能说这是日记，不然就下贱了，当成听戏看小说之类的会更合适一些。&lt;/p&gt;
 &lt;p&gt;缺少使用的东西总会退化，正如我的表达能力。或许现在还有救。&lt;/p&gt;
 &lt;p&gt;Please. Help me.&lt;/p&gt;
 </description>
