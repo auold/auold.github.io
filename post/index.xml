@@ -6,7 +6,26 @@
         <description>Recent content in Posts on Blog of Auold</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 16 Feb 2023 00:03:15 +0800</lastBuildDate><atom:link href="https://auold.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 Mar 2023 23:51:36 +0800</lastBuildDate><atom:link href="https://auold.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI绘图中的放大算法对比</title>
+        <link>https://auold.github.io/post/amplification_algorithm_comparison/</link>
+        <pubDate>Thu, 02 Mar 2023 23:51:36 +0800</pubDate>
+        
+        <guid>https://auold.github.io/post/amplification_algorithm_comparison/</guid>
+        <description>&lt;p&gt;先试试看图片格式是否正常&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;测试1中的图片1&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>更新时需要用到的命令</title>
         <link>https://auold.github.io/post/the_way_updating/</link>
         <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>

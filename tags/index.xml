@@ -6,7 +6,23 @@
         <description>Recent content in Tags on Blog of Auold</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 16 Feb 2023 00:03:15 +0800</lastBuildDate><atom:link href="https://auold.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 Mar 2023 23:51:36 +0800</lastBuildDate><atom:link href="https://auold.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI绘图</title>
+        <link>https://auold.github.io/tags/ai%E7%BB%98%E5%9B%BE/</link>
+        <pubDate>Thu, 02 Mar 2023 23:51:36 +0800</pubDate>
+        
+        <guid>https://auold.github.io/tags/ai%E7%BB%98%E5%9B%BE/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>技术</title>
+        <link>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
+        <pubDate>Thu, 02 Mar 2023 23:51:36 +0800</pubDate>
+        
+        <guid>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>git</title>
         <link>https://auold.github.io/tags/git/</link>
         <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
@@ -20,14 +36,6 @@
         <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
         
         <guid>https://auold.github.io/tags/hugo/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>技术</title>
-        <link>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</link>
-        <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
-        
-        <guid>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</guid>
         <description></description>
         </item>
         <item>

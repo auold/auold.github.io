@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://auold.github.io/tags/ai%E7%BB%98%E5%9B%BE/</loc>
+    <lastmod>2023-03-02T23:51:36+08:00</lastmod>
+  </url><url>
+    <loc>https://auold.github.io/post/amplification_algorithm_comparison/</loc>
+    <lastmod>2023-03-02T23:51:36+08:00</lastmod>
+  </url><url>
     <loc>https://auold.github.io/</loc>
-    <lastmod>2023-02-16T00:03:15+08:00</lastmod>
+    <lastmod>2023-03-02T23:51:36+08:00</lastmod>
+  </url><url>
+    <loc>https://auold.github.io/post/</loc>
+    <lastmod>2023-03-02T23:51:36+08:00</lastmod>
+  </url><url>
+    <loc>https://auold.github.io/tags/</loc>
+    <lastmod>2023-03-02T23:51:36+08:00</lastmod>
+  </url><url>
+    <loc>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2023-03-02T23:51:36+08:00</lastmod>
   </url><url>
     <loc>https://auold.github.io/tags/git/</loc>
     <lastmod>2023-02-16T00:03:15+08:00</lastmod>
   </url><url>
     <loc>https://auold.github.io/tags/hugo/</loc>
-    <lastmod>2023-02-16T00:03:15+08:00</lastmod>
-  </url><url>
-    <loc>https://auold.github.io/post/</loc>
-    <lastmod>2023-02-16T00:03:15+08:00</lastmod>
-  </url><url>
-    <loc>https://auold.github.io/tags/</loc>
-    <lastmod>2023-02-16T00:03:15+08:00</lastmod>
-  </url><url>
-    <loc>https://auold.github.io/tags/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2023-02-16T00:03:15+08:00</lastmod>
   </url><url>
     <loc>https://auold.github.io/post/the_way_updating/</loc>
