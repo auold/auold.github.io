@@ -12,7 +12,9 @@
         <pubDate>Thu, 02 Mar 2023 23:51:36 +0800</pubDate>
         
         <guid>https://auold.github.io/post/amplification_algorithm_comparison/</guid>
-        <description>&lt;p&gt;先试试看图片格式是否正常&lt;/p&gt;
+        <description>&lt;p&gt;&lt;em&gt;放大的必要性。 一开始画大的容易炸 没能力画大的&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;发现问题很容易出在放大的过程，决定做个实验对比一下&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;测试一的测试条件如下图所示。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/test1.png&#34;
 	
 	
@@ -22,7 +24,9 @@
 		alt=&#34;test1&#34;
 	
 	
-&gt;&lt;/p&gt;
+&gt;
+&lt;strong&gt;测试一条件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;仅通过修改放大算法，可以得到如下所示的一系列结果。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent.png&#34;
 	
 	
@@ -32,7 +36,9 @@
 		alt=&#34;test1_Latent&#34;
 	
 	
-&gt; &lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28antialiased%29.png&#34;
+&gt;
+&lt;strong&gt;Latent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28antialiased%29.png&#34;
 	
 	
 	
@@ -41,7 +47,19 @@
 		alt=&#34;test1_Latent(antialiased)&#34;
 	
 	
-&gt;&lt;/p&gt;
+&gt;
+&lt;strong&gt;Latent(antialiased)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28bicubic%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Latent(bicubic)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic)&lt;/strong&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
