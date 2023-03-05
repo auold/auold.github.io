@@ -13,13 +13,32 @@
         
         <guid>https://auold.github.io/post/amplification_algorithm_comparison/</guid>
         <description>&lt;p&gt;先试试看图片格式是否正常&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/test1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;测试1中的图片1&#34;
+		alt=&#34;test1_Latent&#34;
+	
+	
+&gt; &lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28antialiased%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Latent(antialiased)&#34;
 	
 	
 &gt;&lt;/p&gt;
