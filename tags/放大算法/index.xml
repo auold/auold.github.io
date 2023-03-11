@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Blog of Auold</title>
-        <link>https://auold.github.io/post/</link>
-        <description>Recent content in Posts on Blog of Auold</description>
+        <title>放大算法 on Blog of Auold</title>
+        <link>https://auold.github.io/tags/%E6%94%BE%E5%A4%A7%E7%AE%97%E6%B3%95/</link>
+        <description>Recent content in 放大算法 on Blog of Auold</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 02 Mar 2023 23:51:36 +0800</lastBuildDate><atom:link href="https://auold.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 Mar 2023 23:51:36 +0800</lastBuildDate><atom:link href="https://auold.github.io/tags/%E6%94%BE%E5%A4%A7%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>AI绘图中的放大算法对比</title>
         <link>https://auold.github.io/post/amplification_algorithm_comparison/</link>
         <pubDate>Thu, 02 Mar 2023 23:51:36 +0800</pubDate>
@@ -167,48 +167,6 @@
 &lt;strong&gt;SwinIR_4x&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;em&gt;未来计划 controlnet之类的 高质量出图&lt;/em&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>更新时需要用到的命令</title>
-        <link>https://auold.github.io/post/the_way_updating/</link>
-        <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
-        
-        <guid>https://auold.github.io/post/the_way_updating/</guid>
-        <description>&lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
-&lt;p&gt;首先打开&lt;em&gt;git bash&lt;/em&gt;，跳转至&lt;em&gt;blog&lt;/em&gt;文件夹，&lt;strong&gt;注意这里是/而不是\&lt;/strong&gt;。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd F:/GitHub/Hugo/Sites/blog
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过 &lt;em&gt;hugo new&lt;/em&gt; 命令新建名为 &lt;em&gt;.md&lt;/em&gt; 的 &lt;em&gt;markdown&lt;/em&gt; 文件。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ hugo new post/.md
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;打开相应文件开始劈里啪啦一顿写。&lt;/p&gt;
-&lt;p&gt;写完了之后回到&lt;em&gt;git bash&lt;/em&gt;，生成静态网页，静态网页的位置在&lt;em&gt;blog\public&lt;/em&gt;。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ hugo --baseUrl=&amp;#34;https://auold.github.io/&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后进入&lt;em&gt;public&lt;/em&gt;文件夹进行推送。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd public
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个文件夹本身已经初始化过了，经过试验可以不需要重新&lt;em&gt;git init&lt;/em&gt;。先将所有文件添加到索引。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git add -A
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;提交代码，&amp;ldquo;&amp;ldquo;中的内容表示注释说明，必须要有，用于注释这次提交是做了什么修改。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git commit -m &amp;#34;&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将代码推送至远程仓库。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git push
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;最后静静地等待&lt;em&gt;github&lt;/em&gt;的&lt;em&gt;workflow&lt;/em&gt;运行起来，再把先前的&lt;em&gt;workflow&lt;/em&gt;删除就好。&lt;em&gt;（我其实并不清楚不删除会怎样，目前看起来似乎没有问题，不过总感觉删了总比不删来得清楚）&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;希望能维持住更新。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>这是第一篇</title>
-        <link>https://auold.github.io/post/first/</link>
-        <pubDate>Tue, 14 Feb 2023 23:33:00 +0800</pubDate>
-        
-        <guid>https://auold.github.io/post/first/</guid>
-        <description>&lt;h2 id=&#34;为什么是博客&#34;&gt;为什么是&lt;strong&gt;博客&lt;/strong&gt;？&lt;/h2&gt;
-&lt;p&gt;博客虽然形式老旧且更新麻烦，但同时也带来了更高的自由度。无论是形式上还是内容上，博客都更加自由。&lt;/p&gt;
-&lt;h2 id=&#34;为什么是hugogithub&#34;&gt;为什么是&lt;em&gt;Hugo&lt;/em&gt;+&lt;em&gt;Github&lt;/em&gt;？&lt;/h2&gt;
-&lt;p&gt;因为&lt;em&gt;&lt;strong&gt;简单&lt;/strong&gt;&lt;/em&gt;，以目前的内容量，这个形式足够我发挥了。如果我之后真的努力更新这个站点的话，说不定会考虑再给它换个家。&lt;/p&gt;
-&lt;h2 id=&#34;会写点什么&#34;&gt;会写点什么？&lt;/h2&gt;
-&lt;p&gt;我主要是想&lt;strong&gt;给自己留下反刍的时间和空间&lt;/strong&gt;。目前打算什么都写，涉及技术的当然会有，但我也不想把这个地方完全变成一个技术的仓库。我发现我已经很久很久没有与自己正儿八经的聊，并且以文字为媒介把当时的所思所想记录下来了。不能说这是日记，不然就下贱了，当成听戏看小说之类的会更合适一些。&lt;/p&gt;
-&lt;p&gt;缺少使用的东西总会退化，正如我的表达能力。或许现在还有救。&lt;/p&gt;
-&lt;p&gt;Please. Help me.&lt;/p&gt;
 </description>
         </item>
         

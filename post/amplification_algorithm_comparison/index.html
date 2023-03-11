@@ -1,42 +1,75 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='放大的必要性。 一开始画大的容易炸 没能力画大的
-发现问题很容易出在放大的过程，决定做个实验对比一下
-具体的实验条件，包括硬件、使用的模型、词条、参数等等
-测试一的测试条件如下图所示。
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='放大的必要性 在最近摸索 Stable Diffusion 绘图的过程中，我发现了一个比较常见的现象。如果在最开始画图时直接就设置一个较大的宽度和高度(例如1920*1280)，很容易让AI不知所措，把很多东西都塞到一幅画里面，或者直接就是出来一幅意义不明的画。即使在提示词中使用了诸如 &amp;ldquo;solo&amp;rdquo; 之类的描述也很难抑制这个现象的发生。
+所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 Hires. fix 功能对其进行放大。根据经验，当宽高比小于1024*1024时，尝试过的大多数模型都可以稳定出图，没有大的结构性的问题。
+放大带来的问题 但放大也不是那么容易用的，不良的算法和重绘系数选择很有可能会将一副原本不错的画完全毁掉。在之前尝试某个模型的时候，不管我怎么在反向提示词里面加关于手指异常的提示，最终得到的图就从来没有五根手指的，甚至还有其他的地方变手指的。然而当我观察图片的生成过程时，我才发现最初生成的图片手指确实是好的，手指的异常是在放大的过程中出现的！
+由此，才产生了这篇文章，我决定简单对比一下目前内置的这些放大算法效果的差异。我本人对这些不同算法的原理了解并不深刻，这里的对比更多是绘图效果的直接对比。事实上，后来我才慢慢发现不同放大算法的最优重绘幅度差别不小，所以下面的实验并不能很好的展示各个放大算法最好的效果，仅仅算是对于这个功能初步的一些探索吧。
+实验条件 CPU: Intel i5-12400F 内存: 32GB 显卡：NVIDIA GeForce RTX 3060 Ti (8GB) 模型：dalcefoPainting_2nd 如果某个测试中没有出现对应的放大算法，那就是爆显存没画出来，请谅解
+测试一 测试一的测试条件如下图所示。
 测试一条件
-仅通过修改放大算法，可以得到如下所示的一系列结果。
+仅通过修改放大算法，保持所有参数不变，可以得到如下所示的一系列结果。
 Latent
 Latent(antialiased)
-Latent(bicubic)'>
+Latent(bicubic)
+![test1_Latent(bicubic antialias)](/amplification_algorithm_comparison/test1/Latent(bicubic antialias).png) Latent(bicubic antialias)
+Latent(nearest)
+Latent(nearest-exact)
+无
+Lanczos
+最邻近(整数缩放)
+Lanczos
+SwinIR_4x
+未来计划 controlnet之类的 高质量出图'>
 <title>AI绘图中的放大算法对比</title>
 
 <link rel='canonical' href='https://auold.github.io/post/amplification_algorithm_comparison/'>
 
 <link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='AI绘图中的放大算法对比'>
-<meta property='og:description' content='放大的必要性。 一开始画大的容易炸 没能力画大的
-发现问题很容易出在放大的过程，决定做个实验对比一下
-具体的实验条件，包括硬件、使用的模型、词条、参数等等
-测试一的测试条件如下图所示。
+<meta property='og:description' content='放大的必要性 在最近摸索 Stable Diffusion 绘图的过程中，我发现了一个比较常见的现象。如果在最开始画图时直接就设置一个较大的宽度和高度(例如1920*1280)，很容易让AI不知所措，把很多东西都塞到一幅画里面，或者直接就是出来一幅意义不明的画。即使在提示词中使用了诸如 &amp;ldquo;solo&amp;rdquo; 之类的描述也很难抑制这个现象的发生。
+所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 Hires. fix 功能对其进行放大。根据经验，当宽高比小于1024*1024时，尝试过的大多数模型都可以稳定出图，没有大的结构性的问题。
+放大带来的问题 但放大也不是那么容易用的，不良的算法和重绘系数选择很有可能会将一副原本不错的画完全毁掉。在之前尝试某个模型的时候，不管我怎么在反向提示词里面加关于手指异常的提示，最终得到的图就从来没有五根手指的，甚至还有其他的地方变手指的。然而当我观察图片的生成过程时，我才发现最初生成的图片手指确实是好的，手指的异常是在放大的过程中出现的！
+由此，才产生了这篇文章，我决定简单对比一下目前内置的这些放大算法效果的差异。我本人对这些不同算法的原理了解并不深刻，这里的对比更多是绘图效果的直接对比。事实上，后来我才慢慢发现不同放大算法的最优重绘幅度差别不小，所以下面的实验并不能很好的展示各个放大算法最好的效果，仅仅算是对于这个功能初步的一些探索吧。
+实验条件 CPU: Intel i5-12400F 内存: 32GB 显卡：NVIDIA GeForce RTX 3060 Ti (8GB) 模型：dalcefoPainting_2nd 如果某个测试中没有出现对应的放大算法，那就是爆显存没画出来，请谅解
+测试一 测试一的测试条件如下图所示。
 测试一条件
-仅通过修改放大算法，可以得到如下所示的一系列结果。
+仅通过修改放大算法，保持所有参数不变，可以得到如下所示的一系列结果。
 Latent
 Latent(antialiased)
-Latent(bicubic)'>
+Latent(bicubic)
+![test1_Latent(bicubic antialias)](/amplification_algorithm_comparison/test1/Latent(bicubic antialias).png) Latent(bicubic antialias)
+Latent(nearest)
+Latent(nearest-exact)
+无
+Lanczos
+最邻近(整数缩放)
+Lanczos
+SwinIR_4x
+未来计划 controlnet之类的 高质量出图'>
 <meta property='og:url' content='https://auold.github.io/post/amplification_algorithm_comparison/'>
 <meta property='og:site_name' content='Blog of Auold'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='技术' /><meta property='article:tag' content='AI绘图' /><meta property='article:published_time' content='2023-03-02T23:51:36&#43;08:00'/><meta property='article:modified_time' content='2023-03-02T23:51:36&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='技术' /><meta property='article:tag' content='AI绘图' /><meta property='article:tag' content='放大算法' /><meta property='article:published_time' content='2023-03-02T23:51:36&#43;08:00'/><meta property='article:modified_time' content='2023-03-02T23:51:36&#43;08:00'/>
 <meta name="twitter:title" content="AI绘图中的放大算法对比">
-<meta name="twitter:description" content="放大的必要性。 一开始画大的容易炸 没能力画大的
-发现问题很容易出在放大的过程，决定做个实验对比一下
-具体的实验条件，包括硬件、使用的模型、词条、参数等等
-测试一的测试条件如下图所示。
+<meta name="twitter:description" content="放大的必要性 在最近摸索 Stable Diffusion 绘图的过程中，我发现了一个比较常见的现象。如果在最开始画图时直接就设置一个较大的宽度和高度(例如1920*1280)，很容易让AI不知所措，把很多东西都塞到一幅画里面，或者直接就是出来一幅意义不明的画。即使在提示词中使用了诸如 &amp;ldquo;solo&amp;rdquo; 之类的描述也很难抑制这个现象的发生。
+所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 Hires. fix 功能对其进行放大。根据经验，当宽高比小于1024*1024时，尝试过的大多数模型都可以稳定出图，没有大的结构性的问题。
+放大带来的问题 但放大也不是那么容易用的，不良的算法和重绘系数选择很有可能会将一副原本不错的画完全毁掉。在之前尝试某个模型的时候，不管我怎么在反向提示词里面加关于手指异常的提示，最终得到的图就从来没有五根手指的，甚至还有其他的地方变手指的。然而当我观察图片的生成过程时，我才发现最初生成的图片手指确实是好的，手指的异常是在放大的过程中出现的！
+由此，才产生了这篇文章，我决定简单对比一下目前内置的这些放大算法效果的差异。我本人对这些不同算法的原理了解并不深刻，这里的对比更多是绘图效果的直接对比。事实上，后来我才慢慢发现不同放大算法的最优重绘幅度差别不小，所以下面的实验并不能很好的展示各个放大算法最好的效果，仅仅算是对于这个功能初步的一些探索吧。
+实验条件 CPU: Intel i5-12400F 内存: 32GB 显卡：NVIDIA GeForce RTX 3060 Ti (8GB) 模型：dalcefoPainting_2nd 如果某个测试中没有出现对应的放大算法，那就是爆显存没画出来，请谅解
+测试一 测试一的测试条件如下图所示。
 测试一条件
-仅通过修改放大算法，可以得到如下所示的一系列结果。
+仅通过修改放大算法，保持所有参数不变，可以得到如下所示的一系列结果。
 Latent
 Latent(antialiased)
-Latent(bicubic)">
+Latent(bicubic)
+![test1_Latent(bicubic antialias)](/amplification_algorithm_comparison/test1/Latent(bicubic antialias).png) Latent(bicubic antialias)
+Latent(nearest)
+Latent(nearest-exact)
+无
+Lanczos
+最邻近(整数缩放)
+Lanczos
+SwinIR_4x
+未来计划 controlnet之类的 高质量出图">
     </head>
     <body class="
     article-page
@@ -188,9 +221,21 @@ Latent(bicubic)">
     <section class="article-content">
     
     
-    <p><em>放大的必要性。 一开始画大的容易炸 没能力画大的</em></p>
-<p><em>发现问题很容易出在放大的过程，决定做个实验对比一下</em></p>
-<p><em>具体的实验条件，包括硬件、使用的模型、词条、参数等等</em></p>
+    <h2 id="放大的必要性">放大的必要性</h2>
+<p>在最近摸索 <em>Stable Diffusion</em> 绘图的过程中，我发现了一个比较常见的现象。如果在最开始画图时直接就设置一个较大的宽度和高度(例如1920*1280)，很容易让AI不知所措，把很多东西都塞到一幅画里面，或者直接就是出来一幅意义不明的画。即使在提示词中使用了诸如 <em>&ldquo;solo&rdquo;</em> 之类的描述也很难抑制这个现象的发生。</p>
+<p>所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 <em>Hires. fix</em> 功能对其进行放大。根据经验，<strong>当宽高比小于1024*1024时，尝试过的大多数模型都可以稳定出图</strong>，没有大的结构性的问题。</p>
+<h2 id="放大带来的问题">放大带来的问题</h2>
+<p>但放大也不是那么容易用的，不良的算法和重绘系数选择很有可能会将一副原本不错的画完全毁掉。在之前尝试某个模型的时候，不管我怎么在反向提示词里面加关于手指异常的提示，最终得到的图就从来没有五根手指的，甚至还有其他的地方变手指的。然而当我观察图片的生成过程时，我才发现最初生成的图片手指确实是好的，手指的异常是在放大的过程中出现的！</p>
+<p>由此，才产生了这篇文章，我决定简单对比一下目前内置的这些放大算法效果的差异。我本人对这些不同算法的原理了解并不深刻，这里的对比更多是绘图效果的直接对比。事实上，后来我才慢慢发现<strong>不同放大算法的最优重绘幅度差别不小</strong>，所以下面的实验并不能很好的展示各个放大算法最好的效果，仅仅算是对于这个功能初步的一些探索吧。</p>
+<h2 id="实验条件">实验条件</h2>
+<ul>
+<li>CPU: Intel i5-12400F</li>
+<li>内存: 32GB</li>
+<li>显卡：NVIDIA GeForce RTX 3060 Ti (8GB)</li>
+<li>模型：dalcefoPainting_2nd</li>
+</ul>
+<p><em>如果某个测试中没有出现对应的放大算法，那就是爆显存没画出来，请谅解</em></p>
+<h2 id="测试一">测试一</h2>
 <p>测试一的测试条件如下图所示。</p>
 <hr>
 <p><img src="/amplification_algorithm_comparison/test1/test1.png"
@@ -205,7 +250,7 @@ Latent(bicubic)">
 >
 <strong>测试一条件</strong></p>
 <hr>
-<p>仅通过修改放大算法，可以得到如下所示的一系列结果。</p>
+<p>仅通过修改放大算法，保持所有参数不变，可以得到如下所示的一系列结果。</p>
 <hr>
 <p><img src="/amplification_algorithm_comparison/test1/Latent.png"
 	
@@ -243,6 +288,94 @@ Latent(bicubic)">
 >
 <strong>Latent(bicubic)</strong></p>
 <hr>
+<p>![test1_Latent(bicubic antialias)](/amplification_algorithm_comparison/test1/Latent(bicubic antialias).png)
+<strong>Latent(bicubic antialias)</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/Latent%28nearest%29.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_Latent(nearest)"
+	
+	
+>
+<strong>Latent(nearest)</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/Latent%28nearest-exact%29.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_Latent(nearest-exact)"
+	
+	
+>
+<strong>Latent(nearest-exact)</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/None.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_None"
+	
+	
+>
+<strong>无</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/Lanczos.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_Lanczos"
+	
+	
+>
+<strong>Lanczos</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/nearest-integer.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_nearest-integer"
+	
+	
+>
+<strong>最邻近(整数缩放)</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/Lanczos.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_Lanczos"
+	
+	
+>
+<strong>Lanczos</strong></p>
+<hr>
+<p><img src="/amplification_algorithm_comparison/test1/swinIR_4x.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="test1_swinIR_4x"
+	
+	
+>
+<strong>SwinIR_4x</strong></p>
+<hr>
+<p><em>未来计划 controlnet之类的 高质量出图</em></p>
 
 </section>
 
@@ -254,6 +387,8 @@ Latent(bicubic)">
             <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
         
             <a href="/tags/ai%E7%BB%98%E5%9B%BE/">AI绘图</a>
+        
+            <a href="/tags/%E6%94%BE%E5%A4%A7%E7%AE%97%E6%B3%95/">放大算法</a>
         
     </section>
 

@@ -12,9 +12,21 @@
         <pubDate>Thu, 02 Mar 2023 23:51:36 +0800</pubDate>
         
         <guid>https://auold.github.io/post/amplification_algorithm_comparison/</guid>
-        <description>&lt;p&gt;&lt;em&gt;放大的必要性。 一开始画大的容易炸 没能力画大的&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;发现问题很容易出在放大的过程，决定做个实验对比一下&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;具体的实验条件，包括硬件、使用的模型、词条、参数等等&lt;/em&gt;&lt;/p&gt;
+        <description>&lt;h2 id=&#34;放大的必要性&#34;&gt;放大的必要性&lt;/h2&gt;
+&lt;p&gt;在最近摸索 &lt;em&gt;Stable Diffusion&lt;/em&gt; 绘图的过程中，我发现了一个比较常见的现象。如果在最开始画图时直接就设置一个较大的宽度和高度(例如1920*1280)，很容易让AI不知所措，把很多东西都塞到一幅画里面，或者直接就是出来一幅意义不明的画。即使在提示词中使用了诸如 &lt;em&gt;&amp;ldquo;solo&amp;rdquo;&lt;/em&gt; 之类的描述也很难抑制这个现象的发生。&lt;/p&gt;
+&lt;p&gt;所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 &lt;em&gt;Hires. fix&lt;/em&gt; 功能对其进行放大。根据经验，&lt;strong&gt;当宽高比小于1024*1024时，尝试过的大多数模型都可以稳定出图&lt;/strong&gt;，没有大的结构性的问题。&lt;/p&gt;
+&lt;h2 id=&#34;放大带来的问题&#34;&gt;放大带来的问题&lt;/h2&gt;
+&lt;p&gt;但放大也不是那么容易用的，不良的算法和重绘系数选择很有可能会将一副原本不错的画完全毁掉。在之前尝试某个模型的时候，不管我怎么在反向提示词里面加关于手指异常的提示，最终得到的图就从来没有五根手指的，甚至还有其他的地方变手指的。然而当我观察图片的生成过程时，我才发现最初生成的图片手指确实是好的，手指的异常是在放大的过程中出现的！&lt;/p&gt;
+&lt;p&gt;由此，才产生了这篇文章，我决定简单对比一下目前内置的这些放大算法效果的差异。我本人对这些不同算法的原理了解并不深刻，这里的对比更多是绘图效果的直接对比。事实上，后来我才慢慢发现&lt;strong&gt;不同放大算法的最优重绘幅度差别不小&lt;/strong&gt;，所以下面的实验并不能很好的展示各个放大算法最好的效果，仅仅算是对于这个功能初步的一些探索吧。&lt;/p&gt;
+&lt;h2 id=&#34;实验条件&#34;&gt;实验条件&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU: Intel i5-12400F&lt;/li&gt;
+&lt;li&gt;内存: 32GB&lt;/li&gt;
+&lt;li&gt;显卡：NVIDIA GeForce RTX 3060 Ti (8GB)&lt;/li&gt;
+&lt;li&gt;模型：dalcefoPainting_2nd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;如果某个测试中没有出现对应的放大算法，那就是爆显存没画出来，请谅解&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;测试一&#34;&gt;测试一&lt;/h2&gt;
 &lt;p&gt;测试一的测试条件如下图所示。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/test1.png&#34;
@@ -29,7 +41,7 @@
 &gt;
 &lt;strong&gt;测试一条件&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;仅通过修改放大算法，可以得到如下所示的一系列结果。&lt;/p&gt;
+&lt;p&gt;仅通过修改放大算法，保持所有参数不变，可以得到如下所示的一系列结果。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent.png&#34;
 	
@@ -67,6 +79,94 @@
 &gt;
 &lt;strong&gt;Latent(bicubic)&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
+&lt;p&gt;![test1_Latent(bicubic antialias)](/amplification_algorithm_comparison/test1/Latent(bicubic antialias).png)
+&lt;strong&gt;Latent(bicubic antialias)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28nearest%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Latent(nearest)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28nearest-exact%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Latent(nearest-exact)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest-exact)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/None.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_None&#34;
+	
+	
+&gt;
+&lt;strong&gt;无&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Lanczos.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Lanczos&#34;
+	
+	
+&gt;
+&lt;strong&gt;Lanczos&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/nearest-integer.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_nearest-integer&#34;
+	
+	
+&gt;
+&lt;strong&gt;最邻近(整数缩放)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Lanczos.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Lanczos&#34;
+	
+	
+&gt;
+&lt;strong&gt;Lanczos&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/swinIR_4x.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_swinIR_4x&#34;
+	
+	
+&gt;
+&lt;strong&gt;SwinIR_4x&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;未来计划 controlnet之类的 高质量出图&lt;/em&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
