@@ -14,7 +14,9 @@
         <guid>https://auold.github.io/post/the_way_updating/</guid>
         <description>&lt;hr&gt;
 &lt;p&gt;更新 &lt;em&gt;git push设置代理方法&lt;/em&gt;&lt;/p&gt;
-&lt;hr&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git conifg --global --unset http.proxy
+$ git conifg --global --unset https.proxy
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
 &lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
 &lt;p&gt;首先打开&lt;em&gt;git bash&lt;/em&gt;，跳转至&lt;em&gt;blog&lt;/em&gt;文件夹，&lt;strong&gt;注意这里是/而不是\&lt;/strong&gt;。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd F:/GitHub/Hugo/Sites/blog
