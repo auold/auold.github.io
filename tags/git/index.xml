@@ -12,7 +12,10 @@
         <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
         
         <guid>https://auold.github.io/post/the_way_updating/</guid>
-        <description>&lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
+        <description>&lt;hr&gt;
+&lt;p&gt;更新 &lt;em&gt;git push设置代理方法&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
 &lt;p&gt;首先打开&lt;em&gt;git bash&lt;/em&gt;，跳转至&lt;em&gt;blog&lt;/em&gt;文件夹，&lt;strong&gt;注意这里是/而不是\&lt;/strong&gt;。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd F:/GitHub/Hugo/Sites/blog
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过 &lt;em&gt;hugo new&lt;/em&gt; 命令新建名为 &lt;em&gt;.md&lt;/em&gt; 的 &lt;em&gt;markdown&lt;/em&gt; 文件。&lt;/p&gt;

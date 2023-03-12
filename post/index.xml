@@ -14,14 +14,14 @@
         <guid>https://auold.github.io/post/amplification_algorithm_comparison/</guid>
         <description>&lt;h2 id=&#34;放大的必要性&#34;&gt;放大的必要性&lt;/h2&gt;
 &lt;p&gt;在最近摸索 &lt;em&gt;Stable Diffusion&lt;/em&gt; 绘图的过程中，我发现了一个比较常见的现象。如果在最开始画图时直接就设置一个较大的宽度和高度(例如1920*1280)，很容易让AI不知所措，把很多东西都塞到一幅画里面，或者直接就是出来一幅意义不明的画。即使在提示词中使用了诸如 &lt;em&gt;&amp;ldquo;solo&amp;rdquo;&lt;/em&gt; 之类的描述也很难抑制这个现象的发生。&lt;/p&gt;
-&lt;p&gt;所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 &lt;em&gt;Hires. fix&lt;/em&gt; 功能对其进行放大。根据经验，&lt;strong&gt;当宽高比小于1024*1024时，尝试过的大多数模型都可以稳定出图&lt;/strong&gt;，没有大的结构性的问题。&lt;/p&gt;
+&lt;p&gt;所以我认为目前比较好且稳定的方式，是先画一幅宽和高均较小的画，再通过 &lt;em&gt;Hires. fix&lt;/em&gt; 功能对其进行放大。根据经验，&lt;strong&gt;当宽和高小于1024*1024时，尝试过的大多数模型都可以稳定出图&lt;/strong&gt;，没有大的结构性的问题。&lt;/p&gt;
 &lt;h2 id=&#34;放大带来的问题&#34;&gt;放大带来的问题&lt;/h2&gt;
 &lt;p&gt;但放大也不是那么容易用的，不良的算法和重绘系数选择很有可能会将一副原本不错的画完全毁掉。在之前尝试某个模型的时候，不管我怎么在反向提示词里面加关于手指异常的提示，最终得到的图就从来没有五根手指的，甚至还有其他的地方变手指的。然而当我观察图片的生成过程时，我才发现最初生成的图片手指确实是好的，手指的异常是在放大的过程中出现的！&lt;/p&gt;
 &lt;p&gt;由此，才产生了这篇文章，我决定简单对比一下目前内置的这些放大算法效果的差异。我本人对这些不同算法的原理了解并不深刻，这里的对比更多是绘图效果的直接对比。事实上，后来我才慢慢发现&lt;strong&gt;不同放大算法的最优重绘幅度差别不小&lt;/strong&gt;，所以下面的实验并不能很好的展示各个放大算法最好的效果，仅仅算是对于这个功能初步的一些探索吧。&lt;/p&gt;
 &lt;h2 id=&#34;实验条件&#34;&gt;实验条件&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;CPU: Intel i5-12400F&lt;/li&gt;
-&lt;li&gt;内存: 32GB&lt;/li&gt;
+&lt;li&gt;CPU：Intel i5-12400F&lt;/li&gt;
+&lt;li&gt;内存：32GB&lt;/li&gt;
 &lt;li&gt;显卡：NVIDIA GeForce RTX 3060 Ti (8GB)&lt;/li&gt;
 &lt;li&gt;模型：dalcefoPainting_2nd&lt;/li&gt;
 &lt;/ul&gt;
@@ -79,7 +79,16 @@
 &gt;
 &lt;strong&gt;Latent(bicubic)&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;![test1_Latent(bicubic antialias)](/amplification_algorithm_comparison/test1/Latent(bicubic antialias).png)
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28bicubic_antialias%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test1_Latent(bicubic antialias)&#34;
+	
+	
+&gt;
 &lt;strong&gt;Latent(bicubic antialias)&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test1/Latent%28nearest%29.png&#34;
@@ -166,7 +175,379 @@
 &gt;
 &lt;strong&gt;SwinIR_4x&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;em&gt;未来计划 controlnet之类的 高质量出图&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;最容易发现的一个现象是，&lt;strong&gt;在0.8的重绘幅度下，Lantent开头的放大算法都把下面的一束头发重绘成了手臂，而下面几种重绘方式都没有出现这个问题&lt;/strong&gt;。事实上，根据我的经验，&lt;strong&gt;Lantent开头的一系列放大算法在重绘幅度超过0.6时很容易出现异常的肢体&lt;/strong&gt;，尤其是在裸露的皮肤较多的时候。重绘幅度一高，就很容易出现梦魇融合怪的恐怖场面。&lt;/p&gt;
+&lt;p&gt;由此我们可以得到这样一个结论:&lt;em&gt;&lt;strong&gt;&amp;ldquo;在使用重绘功能时，如果出现了不理想的肢体情况，可以尝试降低重绘幅度。&amp;rdquo;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;测试二&#34;&gt;测试二&lt;/h2&gt;
+&lt;p&gt;测试二的实验条件如下图所示。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/test2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2&#34;
+	
+	
+&gt;
+&lt;strong&gt;测试二条件&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;0.9的重绘幅度，梦魇融合怪来喽。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Latent.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Latent&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Latent%28antialiased%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Latent(antialiased)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(antialiased)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Latent%28bicubic%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Latent(bicubic)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Latent%28bicubic_antialias%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Latent(bicubic antialias)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic antialias)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Latent%28nearest%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Latent(nearest)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Latent%28nearest-exact%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Latent(nearest-exact)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest-exact)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/None.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_None&#34;
+	
+	
+&gt;
+&lt;strong&gt;无&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Lanczos.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Lanczos&#34;
+	
+	
+&gt;
+&lt;strong&gt;Lanczos&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/nearest-integer.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_nearest-integer&#34;
+	
+	
+&gt;
+&lt;strong&gt;最邻近(整数缩放)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/Lanczos.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_Lanczos&#34;
+	
+	
+&gt;
+&lt;strong&gt;Lanczos&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test2/swinIR_4x.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test2_swinIR_4x&#34;
+	
+	
+&gt;
+&lt;strong&gt;SwinIR_4x&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;观察测试条件的截图不难发现，其实模型一开始生成的是一个正常的小姐姐，“这锅我模型不背”！这一组对照实验很好的证明了测试一的结论，如果你不想出现这样的悲惨情况的话，适当调小重绘幅度吧。&lt;/p&gt;
+&lt;h2 id=&#34;测试三&#34;&gt;测试三&lt;/h2&gt;
+&lt;p&gt;测试三的实验条件如下图所示。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/test3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3&#34;
+	
+	
+&gt;
+&lt;strong&gt;测试三条件&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;主要参数与测试二完全相同，仅仅将重绘幅度由0.9调整至0.6。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/Latent.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_Latent&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/Latent%28antialiased%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_Latent(antialiased)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(antialiased)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/Latent%28bicubic%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_Latent(bicubic)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/Latent%28bicubic_antialias%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_Latent(bicubic antialias)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic antialias)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/Latent%28nearest%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_Latent(nearest)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/Latent%28nearest-exact%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_Latent(nearest-exact)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest-exact)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/nearest-integer.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_nearest-integer&#34;
+	
+	
+&gt;
+&lt;strong&gt;最邻近(整数缩放)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test3/swinIR_4x.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test3_swinIR_4x&#34;
+	
+	
+&gt;
+&lt;strong&gt;SwinIR_4x&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;大家，都恢复正常了！重绘幅度，很神奇吧。所有的放大算法都在0.6的重绘幅度下成功出图了，可喜可贺。&lt;/p&gt;
+&lt;p&gt;现在就可以来看一看各个算法的绘图效果了。&lt;/p&gt;
+&lt;p&gt;首先在整体的色彩方面，&lt;em&gt;Latent&lt;/em&gt; 系列放大算法获得的图片色彩都比较丰富，而其他方法获得的图片相对有一点灰蒙蒙的。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;swinIR_4x&lt;/em&gt; 更是重量级，单独看其实也还好，但对比前者，它简直就像盖上了一层灰色的蒙版，然而它又是唯一一个把肚脐的细节保留的放大算法，真是让人又爱又恨。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;最邻近(整数缩放)&lt;/em&gt; 和 &lt;em&gt;swinIR_4x&lt;/em&gt; 的副乳表现不是很好，其实 &lt;em&gt;Latent&lt;/em&gt; 系列也没有特别理想，只能说还可以把结果归结为衣服勒的，但上面两位看上去就像单独有赘肉一样，&lt;em&gt;最邻近(整数缩放)&lt;/em&gt; 甚至多了一条褶皱，适当的褶皱可以增加真实感，但多了也不好看啊。&lt;/p&gt;
+&lt;p&gt;只有 &lt;em&gt;Latent(nearest)&lt;/em&gt; 和 &lt;em&gt;Latent(nearest-exact)&lt;/em&gt; 画出了头上的麻花辫，虽然我也没法判断是他们自己生成的，还是保留原图的。同时这两位也是我认为手指表现比较好的。另外，只有 &lt;em&gt;Latent(nearest)&lt;/em&gt; 生成的小姐姐手上是有手环的。我倾向于认为它们更能够保留原图的小细节。&lt;/p&gt;
+&lt;p&gt;衣服方面，只有 &lt;em&gt;最邻近(整数缩放)&lt;/em&gt; 给小姐姐多加了一层蕾丝，不过其实加的也挺好看的，质感也不错，小配饰也很丰富。&lt;em&gt;Latent&lt;/em&gt;，*Latent(antialiased)*和 &lt;em&gt;最邻近(整数缩放)&lt;/em&gt; 画出了裙子上的丝带。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;总的来说，上述这些放大算法各有优劣，&lt;em&gt;Latent&lt;/em&gt; 系列的颜色更丰富，其中 &lt;em&gt;Latent(nearest)&lt;/em&gt; 和 &lt;em&gt;Latent(nearest-exact)&lt;/em&gt; 细节更到位，&lt;em&gt;最邻近(整数缩放)&lt;/em&gt; 的衣服更华丽，而 &lt;em&gt;swinIR_4x&lt;/em&gt; 对身体曲线的刻画更好。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;测试四&#34;&gt;测试四&lt;/h2&gt;
+&lt;p&gt;测试四的实验条件如下图所示。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/test4.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4&#34;
+	
+	
+&gt;
+&lt;strong&gt;测试四条件&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;主要参数与测试二、三完全相同，仅仅将重绘幅度由0.6调整至0.3。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/Latent.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4_Latent&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/Latent%28antialiased%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4_Latent(antialiased)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(antialiased)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/Latent%28bicubic%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4_Latent(bicubic)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/Latent%28bicubic_antialias%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4_Latent(bicubic antialias)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(bicubic antialias)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/Latent%28nearest%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4_Latent(nearest)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://auold.github.io/amplification_algorithm_comparison/test4/Latent%28nearest-exact%29.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;test4_Latent(nearest-exact)&#34;
+	
+	
+&gt;
+&lt;strong&gt;Latent(nearest-exact)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;del&gt;你的近视又严重了，该换眼镜了。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;重绘幅度难道是越小越好吗？答案显然是否定的，在0.3的重绘幅度下，所有放大算法获得的结果都非常模糊。这告诉我们&lt;strong&gt;最好选择0.4以上的重绘幅度，否则放大的结果会比较模糊&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;这次的对照实验基本就是这样，以放大算法种类和重绘幅度为核心参数，观察对比了这两者的变化对绘图结果产生的影响，并且得到了一些可用的经验性结论。&lt;/p&gt;
+&lt;p&gt;在这篇文章拖更的过程中，&lt;em&gt;ControlNet&lt;/em&gt;等令AI绘图更加可控的方案已经应运而生，后续我也会继续跟进，学习如何提高AI绘图的可用性。我自诩为所谓“直出党”，不喜欢出图后再修，更偏爱一次搞定的绘图方法。&lt;/p&gt;
+&lt;p&gt;当前目标：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;继续尝试，在调参中提高出图质量；&lt;/li&gt;
+&lt;li&gt;学习 &lt;em&gt;ControlNet&lt;/em&gt;，提高可控性；&lt;/li&gt;
+&lt;li&gt;学习如何训练模型。&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
@@ -175,7 +556,10 @@
         <pubDate>Thu, 16 Feb 2023 00:03:15 +0800</pubDate>
         
         <guid>https://auold.github.io/post/the_way_updating/</guid>
-        <description>&lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
+        <description>&lt;hr&gt;
+&lt;p&gt;更新 &lt;em&gt;git push设置代理方法&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;新手上路，难免不熟练，每次更新都要去搜一搜这些命令，所以这里做一个简单的汇总，以后直接看这篇就好了。&lt;/p&gt;
 &lt;p&gt;首先打开&lt;em&gt;git bash&lt;/em&gt;，跳转至&lt;em&gt;blog&lt;/em&gt;文件夹，&lt;strong&gt;注意这里是/而不是\&lt;/strong&gt;。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd F:/GitHub/Hugo/Sites/blog
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过 &lt;em&gt;hugo new&lt;/em&gt; 命令新建名为 &lt;em&gt;.md&lt;/em&gt; 的 &lt;em&gt;markdown&lt;/em&gt; 文件。&lt;/p&gt;
